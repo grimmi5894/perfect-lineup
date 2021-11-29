@@ -13,7 +13,13 @@ const getTeamCount = (lineup) => {
   }, {})
 }
 // 3) Lineups may not contain more than 3 players from a single game
+const getGameCount = (lineup) => {
+  return lineup.reduce((gameCounts, player) => {
+    gameCounts[player.gameId] = gameCounts[player.gameId] === undefined ? 1 : gameCounts[player.gameId] + 1
 
+    return gameCounts
+  }, {})
+}
 // 4) Lineups must contain exactly 3 players with the position of 'OF' 
 // and must also contain exactly 1 player from each of the following 
 // positions: 'P', 'C', '1B', '2B', '3B', 'SS'
