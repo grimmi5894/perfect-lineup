@@ -40,6 +40,12 @@ const violatesTeamCount = (teamCounts) => {
 const violatesGameCount = (gameCounts) => {
   return Object.values(gameCounts).some((count) => { return count > 3 })
 }
+const violatesPositionCounts = (positionCounts) => {
+  return positionCounts['P'] !== 1 || positionCounts['C'] !== 1 ||
+  positionCounts['1B'] !== 1 || positionCounts['2B'] !== 1 ||
+  positionCounts['3B'] !== 1 || positionCounts['SS'] !== 1 ||
+  positionCounts['OF'] !== 3
+}
 
 const validateLineup = () => {
 
