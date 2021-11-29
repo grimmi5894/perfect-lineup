@@ -31,9 +31,14 @@ const getPositionCount = (lineup) => {
     return positionCounts
   }, {})
 }
-
 const violatesSalary = (lineup) => {
   return calculateTotalSalary(lineup) > 45000
+}
+const violatesTeamCount = (teamCounts) => {
+  return Object.values(teamCounts).some((count) => { return count > 2 })
+}
+const violatesGameCount = (gameCounts) => {
+  return Object.values(gameCounts).some((count) => { return count > 3 })
 }
 
 const validateLineup = () => {
