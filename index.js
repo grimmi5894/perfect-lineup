@@ -23,7 +23,14 @@ const getGameCount = (lineup) => {
 // 4) Lineups must contain exactly 3 players with the position of 'OF' 
 // and must also contain exactly 1 player from each of the following 
 // positions: 'P', 'C', '1B', '2B', '3B', 'SS'
+const getPositionCount = (lineup) => {
+  return lineup.reduce((positionCounts, player) => {
+    positionCounts[player.position] = positionCounts[player.position] === undefined ? 1 
+      : positionCounts[player.position] + 1
 
+    return positionCounts
+  }, {})
+}
 
 const validateLineup = () => {
 
