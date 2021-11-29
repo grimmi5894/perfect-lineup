@@ -5,7 +5,13 @@ const calculateTotalSalary = (lineup) => {
   }, 0)
 }
 // 2) Lineups may not contain more than 2 players from a single team
+const getTeamCount = (lineup) => {
+  return lineup.reduce((teamCounts, player) => {
+    teamCounts[player.teamId] = teamCounts[player.teamId] === undefined ? 1 : teamCounts[player.teamId] + 1
 
+    return teamCounts
+  }, {})
+}
 // 3) Lineups may not contain more than 3 players from a single game
 
 // 4) Lineups must contain exactly 3 players with the position of 'OF' 
