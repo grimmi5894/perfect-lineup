@@ -32,6 +32,10 @@ const getPositionCount = (lineup) => {
   }, {})
 }
 
+const violatesSalary = (lineup) => {
+  return calculateTotalSalary(lineup) > 45000
+}
+
 const validateLineup = () => {
 
 }
