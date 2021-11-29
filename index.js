@@ -47,8 +47,13 @@ const violatesPositionCounts = (positionCounts) => {
   positionCounts['OF'] !== 3
 }
 
-const validateLineup = () => {
+const validateLineup = (lineup) => {
+  const teamCounts = getTeamCount(lineup)
+  const gameCounts = getGameCount(lineup)
+  const positionCounts = getPositionCount(lineup)
 
+  return !violatesSalary(lineup) && !violatesTeamCount(teamCounts) &&
+  !violatesGameCount(gameCounts) && !violatesPositionCounts(positionCounts)
 }
 
 module.exports = validateLineup
